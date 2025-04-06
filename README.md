@@ -13,6 +13,46 @@ TLC on Gradle abil ehitatud Java Swingi põhine töölaua rakendus. Rakendus võ
 
 On plaanis migreerida andmete salvestamine tugevama andmebaasilahenduse poole ning lisada täiendavaid funktsionaalsusi nagu pilditugi.
 
+
+
+## Funktsionaalsus
+
+### Põhifunktsionaalsus:
+
+1.  [X] Kasutaja saab luua ja kohandada erinevaid tasemeid (valida arv 3-6, muuta nimesid, vaikimisi värvid).
+2.  [X] Kasutaja saab lisada uusi (teksti)elemente tasemeloendisse "Paki" kaudu.
+3.  [X] Elemente saab liigutada (valikmenüü kaudu):
+   *   Sama taseme sees vasakule/paremale.
+   *   Ühest tasemest teise.
+   *   Tasemelt tagasi "Pakki" (vt Märkused).
+4.  [X] Graafiline kasutajaliides (Java Swing).
+5.  [ ] Elementidele saab lisada pilte või logosid (arendamisel).
+6.  [X] Andmete salvestamine ja laadimine (`tierlists.json` faili kaudu).
+
+### Lisafunktsionaalsus:
+
+-   [X] Mitme erineva tasemeloendi loomine ja haldamine.
+-   [X] Värvide ja stiilide kohandamine (tasemetel on fikseeritud värvid, nimed on muudetavad).
+-   [ ] Koostöö võimaldamine lokaalses võrgus
+-   [ ] Tagasivõtmise (undo) funktsioon
+-   [ ] Elementide lohistamine (drag-and-drop) tasemete vahel
+
+### Tulevased Plaanid:
+
+-   **Pildielementide tugi:** Piltide loendisse lisamise võimalus ja kuvamine.
+-   **Andmebaasi migreerimine:** JSON asemel robustsema andmebaasi (nt SQLite) kasutamine.
+-   **Lohistamine (Drag-and-Drop):** Elementide mugavam liigutamine hiirega.
+-   **Versiooni ajaloo jälgimine:** Võimalus vaadata/taastada varasemaid versioone (mini-git sarnane).
+-   **Täiendav kohandamine:** Võimalus muuta tasemete värve, fonte jms.
+
+
+## Näidis
+
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Tier_list_fruits.jpg" width="440">
+</p>
+
+
 ## Projekti struktuur
 
 ```
@@ -54,40 +94,8 @@ TierListCreator/             // tlc
 └── build/                    
 ```
 
-
-
-## Funktsionaalsus
-
-### Põhifunktsionaalsus:
-
-1.  [X] Kasutaja saab luua ja kohandada erinevaid tasemeid (valida arv 3-6, muuta nimesid, vaikimisi värvid).
-2.  [X] Kasutaja saab lisada uusi (teksti)elemente tasemeloendisse "Paki" kaudu.
-3.  [X] Elemente saab liigutada (valikmenüü kaudu):
-    *   Sama taseme sees vasakule/paremale.
-    *   Ühest tasemest teise.
-    *   Tasemelt tagasi "Pakki" (vt Märkused).
-4.  [X] Graafiline kasutajaliides (Java Swing).
-5.  [ ] Elementidele saab lisada pilte või logosid (arendamisel).
-6.  [X] Andmete salvestamine ja laadimine (`tierlists.json` faili kaudu).
-
-### Lisafunktsionaalsus:
-
--   [X] Mitme erineva tasemeloendi loomine ja haldamine.
--   [X] Värvide ja stiilide kohandamine (tasemetel on fikseeritud värvid, nimed on muudetavad).
--   [ ] Koostöö võimaldamine lokaalses võrgus
--   [ ] Tagasivõtmise (undo) funktsioon
--   [ ] Elementide lohistamine (drag-and-drop) tasemete vahel
-
-### Tulevased Plaanid:
-
--   **Pildielementide tugi:** Piltide loendisse lisamise võimalus ja kuvamine.
--   **Andmebaasi migreerimine:** JSON asemel robustsema andmebaasi (nt SQLite) kasutamine.
--   **Lohistamine (Drag-and-Drop):** Elementide mugavam liigutamine hiirega.
--   **Versiooni ajaloo jälgimine:** Võimalus vaadata/taastada varasemaid versioone (mini-git sarnane).
--   **Täiendav kohandamine:** Võimalus muuta tasemete värve, fonte jms.
-
-
 ## Põhitöö selgtus
+
 ### Tier List Manager (Tasemeloendi Haldur)
 
 Esialgne ekraan kuvab nimekirja kõigist salvestatud tasemeloenditest (laetud failist `tierlists.json`). Kasutaja saab luua uue tasemeloendi (valides ka soovitud tasemete arvu 3-6) või avada olemasoleva.

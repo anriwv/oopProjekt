@@ -57,17 +57,39 @@
     {
       "name": "list2",
       "creationTime": "2025-04-06T03:17:22.428305",
-      "modificationTime": "2025-04-06T18:18:35.12405",
+      "modificationTime": "2025-04-06T18:55:37.25976",
       "tiers": [
         {
           "name": "A",
           "color": "#FFA500",
-          "items": []
+          "items": [
+            {
+              "text": "qqq",
+              "id": "cb07aa7c-5646-412d-9826-31407b9ea373",
+              "type": "text"
+            },
+            {
+              "text": "qq",
+              "id": "5183ba28-bc45-46d0-845a-b6670da2ad32",
+              "type": "text"
+            }
+          ]
         },
         {
           "name": "D",
           "color": "#90EE90",
-          "items": []
+          "items": [
+            {
+              "text": "ww",
+              "id": "89a6167c-ece4-4a28-8b74-46c86fc4de20",
+              "type": "text"
+            },
+            {
+              "text": "ww",
+              "id": "b94a2ca5-29d1-43cd-93a5-02e91190e971",
+              "type": "text"
+            }
+          ]
         }
       ]
     }
