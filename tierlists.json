@@ -3,7 +3,7 @@
     {
       "name": "list1",
       "creationTime": "2025-04-06T02:55:38.1641488",
-      "modificationTime": "2025-04-06T03:17:12.8862666",
+      "modificationTime": "2025-04-06T17:41:05.758162",
       "tiers": [
         {
           "name": "S",
@@ -57,48 +57,17 @@
     {
       "name": "list2",
       "creationTime": "2025-04-06T03:17:22.428305",
-      "modificationTime": "2025-04-06T03:30:35.739802",
+      "modificationTime": "2025-04-06T17:34:47.773481",
       "tiers": [
-        {
-          "name": "dsaf",
-          "color": "#FF0000",
-          "items": []
-        },
         {
           "name": "A",
           "color": "#FFA500",
           "items": []
         },
         {
-          "name": "B",
-          "color": "#FFD700",
-          "items": []
-        },
-        {
-          "name": "C",
-          "color": "#FFF44F",
-          "items": []
-        },
-        {
           "name": "D",
           "color": "#90EE90",
           "items": []
-        },
-        {
-          "name": "F",
-          "color": "#808080",
-          "items": [
-            {
-              "text": "dsasdf",
-              "id": "bb881522-c0e3-4919-a769-039fc850fde7",
-              "type": "text"
-            },
-            {
-              "text": "dsaffdas",
-              "id": "a76fb11b-850b-4f74-820f-3e4986052f39",
-              "type": "text"
-            }
-          ]
         }
       ]
     }

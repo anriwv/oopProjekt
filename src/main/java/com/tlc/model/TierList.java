@@ -39,6 +39,11 @@ public class TierList {
         updateModificationTime();
     }
 
+    public void removeTier(Tier tier) {
+        tiers.remove(tier);
+        updateModificationTime();
+    }
+
     public void updateModificationTime() {
         modificationTime = LocalDateTime.now();
     }

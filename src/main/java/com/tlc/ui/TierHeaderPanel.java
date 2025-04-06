@@ -38,11 +38,16 @@ public class TierHeaderPanel extends JPanel {
         nameLabel.setForeground(isColorDark(getBackground()) ? Color.WHITE : Color.BLACK);
         add(nameLabel, BorderLayout.CENTER);
 
-        // Edit Button
+        // Edit Button - POP-UP menu
         JButton editButton = new JButton("✎");
-        editButton.setToolTipText("Edit Tier Name");
+        editButton.setToolTipText("Edit tier: " + tier.getName());
         editButton.setMargin(new Insets(2, 2, 2, 2));
-        editButton.addActionListener(new ActionListener() {
+
+        JPopupMenu editMenu = new JPopupMenu();
+
+        // Rename
+        JMenuItem renameItem = new JMenuItem("Rename Tier");
+        renameItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String currentName = tier.getName();
@@ -76,6 +81,42 @@ public class TierHeaderPanel extends JPanel {
                 }
             }
         });
+        editMenu.add(renameItem);
+
+        // Delete
+        JMenuItem deleteItem = new JMenuItem("Delete Tier");
+        deleteItem.setForeground(Color.RED);
+        deleteItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Ask for confirmation before deleting the tier
+                int confirm = JOptionPane.showConfirmDialog(
+                        TierHeaderPanel.this,
+                        "Are you sure you want to delete tier '" + tier.getName() + "'?",
+                        "Confirm Deletion",
+                        JOptionPane.YES_NO_OPTION
+                );
+
+                if (confirm == JOptionPane.YES_OPTION) {
+                    try {
+                        tierListService.deleteTier(tier);
+                        parentPanel.refresh();
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(TierHeaderPanel.this, "Error deleting tier: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        });
+        editMenu.add(deleteItem);
+
+        editButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Display the popup menu under the edit button
+                editMenu.show(editButton, 0, editButton.getHeight());
+            }
+        });
+
         add(editButton, BorderLayout.EAST);
     }
 

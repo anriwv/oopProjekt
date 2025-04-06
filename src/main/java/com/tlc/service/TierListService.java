@@ -77,6 +77,13 @@ public class TierListService {
         System.out.println("Service: Added new tier '" + tier.getName() + "' with color " + tier.getColor());
     }
 
+    public void deleteTier(Tier tier) {
+        if (tier == null) return;
+        tierList.removeTier(tier);
+        System.out.println("Service: Deleted tier '" + tier.getName() + "' with color " + tier.getColor());
+    }
+
+
     public void moveItemToTier(String sourceTierName, int itemIndex, String targetTierName) throws Exception {
         if (sourceTierName == null || targetTierName == null || sourceTierName.trim().equalsIgnoreCase(targetTierName.trim())) {
             throw new IllegalArgumentException("Source and target tier names must be different and not null.");
