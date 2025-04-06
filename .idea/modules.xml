@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/oopProjekt.iml" filepath="$PROJECT_DIR$/.idea/oopProjekt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TierListCreator.iml" filepath="$PROJECT_DIR$/.idea/modules/TierListCreator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TierListCreator.main.iml" filepath="$PROJECT_DIR$/.idea/modules/TierListCreator.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TierListCreator.test.iml" filepath="$PROJECT_DIR$/.idea/modules/TierListCreator.test.iml" />
     </modules>
   </component>
 </project>
