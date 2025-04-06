@@ -16,6 +16,7 @@ public class TierListManagerPanel extends JPanel {
     private JList<TierList> tierListDisplay;
     private JButton openButton;
     private JButton newButton;
+    private JButton deleteButton;
     private MainFrame mainFrame;
 
     public TierListManagerPanel(TierListRepository repository, MainFrame mainFrame) {
@@ -32,8 +33,10 @@ public class TierListManagerPanel extends JPanel {
         JPanel buttonPanel = new JPanel(new FlowLayout());
         openButton = new JButton("Open Selected");
         newButton = new JButton("New Tier List");
+        deleteButton = new JButton("Delete Selected");
         buttonPanel.add(openButton);
         buttonPanel.add(newButton);
+        buttonPanel.add(deleteButton);
         add(buttonPanel, BorderLayout.SOUTH);
 
         refreshList();
@@ -78,12 +81,45 @@ public class TierListManagerPanel extends JPanel {
                         newTierList.addTier(new Tier(defaultNames[i], defaultColors[i]));
                     }
 
+                    // salvesta repository's
                     repository.saveTierList(newTierList);
                     refreshList();
                     System.out.println("Created new tier list: " + name + " with " + numTiers + " tiers.");
                 }
             }
         });
+
+        // kustuta tl
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TierList selected = tierListDisplay.getSelectedValue();
+                if (selected != null) {
+                    int confirm = JOptionPane.showConfirmDialog(
+                            TierListManagerPanel.this,
+                            "Are you sure you want to delete the entire TierList?",
+                            "Confirm Deletion",
+                            JOptionPane.YES_NO_OPTION
+                    );
+
+
+                    // kustuta repository's
+                    if (confirm == JOptionPane.YES_OPTION) {
+                        try {
+                            repository.deleteTierList(selected);
+                            refreshList();
+                            JOptionPane.showMessageDialog(TierListManagerPanel.this, "TierList " + selected + " deleted successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        } catch (Exception ex) {
+                            JOptionPane.showMessageDialog(TierListManagerPanel.this, "Error deleting TierList: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No tier list selected.");
+                }
+            }
+        });
+
+
     }
 
     public void refreshList() {

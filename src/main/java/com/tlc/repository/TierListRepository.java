@@ -20,6 +20,15 @@ public class TierListRepository {
         tierLists.add(tierList);
     }
 
+    public void deleteTierList(TierList tierList) throws Exception {
+        if (tierLists.contains(tierList)) {
+            tierLists.remove(tierList);
+            System.out.println("TierList " + tierList.getName() + " deleted successfully.");
+        } else {
+            throw new Exception("TierList not found.");
+        }
+    }
+
     public List<TierList> getAllTierLists() {
         return tierLists;
     }
