@@ -8,6 +8,8 @@ import com.tlc.util.PersistenceUtil;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class MainFrame extends JFrame {
     private TierListRepository repository;
@@ -26,20 +28,41 @@ public class MainFrame extends JFrame {
 
         managerPanel = new TierListManagerPanel(repository, this);
         add(managerPanel, BorderLayout.CENTER);
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                saveRepository();
+            }
+        });
+    }
+
+
+    // Nüüd salvestatakse mitte ainult "Back & Save" korral
+    public void saveRepository() {
+        try {
+            for (TierList tierList : repository.getAllTierLists()) {
+                tierList.updateModificationTime();
+            }
+
+            PersistenceUtil.saveRepository(repository);
+            System.out.println("Repository saved successfully.");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this,
+                    "Failed to save tier list repository: " + ex.getMessage(),
+                    "Save Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void openTierList(TierList tierList) {
         System.out.println("Opening TierList: " + tierList.getName());
-
         getContentPane().removeAll();
 
         TierListService service = new TierListService(tierList);
-
         DeckPanel deckPanel = new DeckPanel(service, null);
-
         TierListPanel tierListPanel = new TierListPanel(service, deckPanel);
-
-
         deckPanel.setTierListPanel(tierListPanel);
 
 
@@ -51,16 +74,9 @@ public class MainFrame extends JFrame {
         JButton backButton = new JButton("← Back & Save");
         backButton.setToolTipText("Return to the list manager and save changes to " + tierList.getName());
         backButton.addActionListener((ActionEvent e) -> {
-            try {
-                System.out.println("Saving TierList: " + tierList.getName() + " before going back.");
-                tierList.updateModificationTime(); // Ensure modification time is current
-                PersistenceUtil.saveRepository(repository);
-                System.out.println("Repository saved successfully.");
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Error saving tier list repository: " + ex.getMessage(), "Save Error", JOptionPane.ERROR_MESSAGE);
-                System.err.println("Error saving repository: " + ex.getMessage());
-            }
+
+            saveRepository();
+
             getContentPane().removeAll();
             add(managerPanel, BorderLayout.CENTER);
             managerPanel.refreshList();
@@ -80,4 +96,5 @@ public class MainFrame extends JFrame {
         revalidate();
         repaint();
     }
+
 }
