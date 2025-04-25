@@ -23,3 +23,15 @@ application {
     // Open java.time for reflective access by Gson
     applicationDefaultJvmArgs = ["--add-opens", "java.base/java.time=ALL-UNNAMED"]
 }
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}

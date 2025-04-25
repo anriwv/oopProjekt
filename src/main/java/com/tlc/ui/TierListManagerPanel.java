@@ -3,12 +3,14 @@ package com.tlc.ui;
 import com.tlc.model.Tier;
 import com.tlc.model.TierList;
 import com.tlc.repository.TierListRepository;
+import com.tlc.util.Localization;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Locale;
 
 public class TierListManagerPanel extends JPanel {
     private TierListRepository repository;
@@ -18,11 +20,24 @@ public class TierListManagerPanel extends JPanel {
     private JButton newButton;
     private JButton deleteButton;
     private MainFrame mainFrame;
+    private LanguageSelector languageSelector;
 
     public TierListManagerPanel(TierListRepository repository, MainFrame mainFrame) {
         this.repository = repository;
         this.mainFrame = mainFrame;
         setLayout(new BorderLayout());
+
+        languageSelector = new LanguageSelector();
+        languageSelector.setSelectedLanguage(Localization.getLocale().getLanguage().equals("et") ? "Estonian" : "English");
+
+        languageSelector.addLanguageChangeListener(e -> {
+            updateLanguage(languageSelector.getSelectedLanguage());
+            updateUIText();
+
+        });
+        add(languageSelector, BorderLayout.NORTH);
+
+        // Tier list
         listModel = new DefaultListModel<>();
         tierListDisplay = new JList<>(listModel);
         tierListDisplay.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -31,9 +46,9 @@ public class TierListManagerPanel extends JPanel {
 
         // Nuppude paneel
         JPanel buttonPanel = new JPanel(new FlowLayout());
-        openButton = new JButton("Open Selected");
-        newButton = new JButton("New Tier List");
-        deleteButton = new JButton("Delete Selected");
+        openButton = new JButton(Localization.get("open.selected"));
+        newButton = new JButton(Localization.get("new.list"));
+        deleteButton = new JButton(Localization.get(("delete.selected")));
         buttonPanel.add(openButton);
         buttonPanel.add(newButton);
         buttonPanel.add(deleteButton);
@@ -49,7 +64,7 @@ public class TierListManagerPanel extends JPanel {
                 if (selected != null) {
                     mainFrame.openTierList(selected);
                 } else {
-                    JOptionPane.showMessageDialog(null, "No tier list selected.");
+                    JOptionPane.showMessageDialog(null, Localization.get("no.tier.list.selected"));
                 }
             }
         });
@@ -58,15 +73,15 @@ public class TierListManagerPanel extends JPanel {
         newButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name = JOptionPane.showInputDialog("Enter new tier list name:");
+                String name = JOptionPane.showInputDialog(Localization.get("new.tier.list.name"));
                 if (name != null && !name.trim().isEmpty()) {
 
-                    String numStr = JOptionPane.showInputDialog("Enter number of tiers (3-6):");
+                    String numStr = JOptionPane.showInputDialog(Localization.get("enter.number.of.tiers"));
                     int numTiers = 0;
                     try {
                         numTiers = Integer.parseInt(numStr);
                     } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "Invalid number, using 3.");
+                        JOptionPane.showMessageDialog(null, Localization.get("invalid.number.using.3"));
                         numTiers = 3;
                     }
                     if (numTiers < 3) numTiers = 3;
@@ -84,7 +99,7 @@ public class TierListManagerPanel extends JPanel {
                     // salvesta repository's
                     repository.saveTierList(newTierList);
                     refreshList();
-                    System.out.println("Created new tier list: " + name + " with " + numTiers + " tiers.");
+                    System.out.println(Localization.get("created.new.tier.list") + name + Localization.get("with") + numTiers + Localization.get("tiers"));
                 }
             }
         });
@@ -97,8 +112,8 @@ public class TierListManagerPanel extends JPanel {
                 if (selected != null) {
                     int confirm = JOptionPane.showConfirmDialog(
                             TierListManagerPanel.this,
-                            "Are you sure you want to delete the entire TierList?",
-                            "Confirm Deletion",
+                            Localization.get("delete.entire.TierList"),
+                            Localization.get("confirm.deletion"),
                             JOptionPane.YES_NO_OPTION
                     );
 
@@ -108,13 +123,13 @@ public class TierListManagerPanel extends JPanel {
                         try {
                             repository.deleteTierList(selected);
                             refreshList();
-                            JOptionPane.showMessageDialog(TierListManagerPanel.this, "TierList " + selected + " deleted successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(TierListManagerPanel.this, "TierList " + selected + Localization.get("deleted.successfully"), Localization.get("success"), JOptionPane.INFORMATION_MESSAGE);
                         } catch (Exception ex) {
-                            JOptionPane.showMessageDialog(TierListManagerPanel.this, "Error deleting TierList: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(TierListManagerPanel.this, Localization.get("error.deleting.TierList") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
                         }
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "No tier list selected.");
+                    JOptionPane.showMessageDialog(null, Localization.get("no.tier.list.selected"));
                 }
             }
         });
@@ -128,6 +143,29 @@ public class TierListManagerPanel extends JPanel {
 
         for (TierList tl : lists) {
             listModel.addElement(tl);
+        }
+    }
+
+    public void updateUIText() {
+
+        mainFrame.setTitle(Localization.get("app.title"));
+        openButton.setText(Localization.get("open.selected"));
+        newButton.setText(Localization.get("new.list"));
+        deleteButton.setText(Localization.get("delete.selected"));
+        languageSelector.setLabelText(Localization.get("language"));
+        revalidate();
+        repaint();
+    }
+
+    private void updateLanguage(String selectedLanguage) {
+        switch (selectedLanguage) {
+            case "Estonian":
+                Localization.setLocale(new Locale("et", "EE"));
+                break;
+            case "English":
+            default:
+                Localization.setLocale(Locale.ENGLISH);
+                break;
         }
     }
 }

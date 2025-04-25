@@ -3,7 +3,7 @@
     {
       "name": "list1",
       "creationTime": "2025-04-06T02:55:38.1641488",
-      "modificationTime": "2025-04-06T17:41:05.758162",
+      "modificationTime": "2025-04-25T21:44:40.405838",
       "tiers": [
         {
           "name": "S",
@@ -57,7 +57,7 @@
     {
       "name": "list2",
       "creationTime": "2025-04-06T03:17:22.428305",
-      "modificationTime": "2025-04-06T18:55:37.25976",
+      "modificationTime": "2025-04-25T21:44:40.405924",
       "tiers": [
         {
           "name": "A",
@@ -90,6 +90,11 @@
               "type": "text"
             }
           ]
+        },
+        {
+          "name": "C",
+          "color": "#FFD700",
+          "items": []
         }
       ]
     }
