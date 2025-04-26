@@ -1,63 +1,9 @@
 {
   "tierLists": [
     {
-      "name": "list1",
-      "creationTime": "2025-04-06T02:55:38.1641488",
-      "modificationTime": "2025-04-25T21:44:40.405838",
-      "tiers": [
-        {
-          "name": "S",
-          "color": "#FF0000",
-          "items": []
-        },
-        {
-          "name": "afd",
-          "color": "#FFA500",
-          "items": [
-            {
-              "text": "ddsa",
-              "id": "fbe75d8c-e4eb-4a6c-aa79-5ec7fe49bcb8",
-              "type": "text"
-            },
-            {
-              "text": "dsaffdsafda",
-              "id": "f343f55d-92d5-4543-a9a8-3a806c10bb8b",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "name": "fdhsg",
-          "color": "#FFD700",
-          "items": []
-        },
-        {
-          "name": "C",
-          "color": "#FFF44F",
-          "items": []
-        },
-        {
-          "name": "D",
-          "color": "#90EE90",
-          "items": [
-            {
-              "text": "dsfafds",
-              "id": "18dc95b2-4b72-4204-9a49-500b2e0efd7c",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "name": "F",
-          "color": "#808080",
-          "items": []
-        }
-      ]
-    },
-    {
       "name": "list2",
       "creationTime": "2025-04-06T03:17:22.428305",
-      "modificationTime": "2025-04-25T21:44:40.405924",
+      "modificationTime": "2025-04-26T15:26:29.645488",
       "tiers": [
         {
           "name": "A",
@@ -94,6 +40,81 @@
         {
           "name": "C",
           "color": "#FFD700",
+          "items": []
+        }
+      ]
+    },
+    {
+      "name": "list1",
+      "creationTime": "2025-04-26T14:45:02.845927",
+      "modificationTime": "2025-04-26T15:26:29.645568",
+      "tiers": [
+        {
+          "name": "S",
+          "color": "#FF0000",
+          "items": []
+        },
+        {
+          "name": "A",
+          "color": "#FFA500",
+          "items": []
+        },
+        {
+          "name": "B",
+          "color": "#FFD700",
+          "items": []
+        },
+        {
+          "name": "C",
+          "color": "#FFF44F",
+          "items": []
+        },
+        {
+          "name": "D",
+          "color": "#90EE90",
+          "items": []
+        }
+      ]
+    },
+    {
+      "name": "a",
+      "creationTime": "2025-04-26T14:46:04.994181",
+      "modificationTime": "2025-04-26T15:26:29.645589",
+      "tiers": [
+        {
+          "name": "S",
+          "color": "#FF0000",
+          "items": [
+            {
+              "text": "123",
+              "id": "a36c0081-6588-4226-aa02-1a3df0d16987",
+              "type": "text"
+            },
+            {
+              "text": "7",
+              "id": "e89533fc-3f6a-491f-8bae-30030c139814",
+              "type": "text"
+            },
+            {
+              "text": "74",
+              "id": "2d27eee5-5b1d-43ca-a2aa-1374bb030b9f",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "name": "AA",
+          "color": "#FFA500",
+          "items": []
+        },
+        {
+          "name": "B",
+          "color": "#FFD700",
+          "items": []
+        },
+        {
+          "name": "as",
+          "color": "#FFF44F",
           "items": []
         }
       ]

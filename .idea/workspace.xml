@@ -5,43 +5,82 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30165c7e-7347-4a11-94ef-23904ebfa31c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/LanguageSelector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tlc/util/Localization.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tlc/ui/messages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tlc/ui/messages_et.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore " beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore " afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/TierListCreator.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/TierListCreator.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/RuntimeTypeAdapterFactory$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierHeaderPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierHeaderPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierListCreator-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierListCreator-1.0.tar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierListCreator-1.0.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierListManagerPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierListManagerPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierListPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierListRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierListService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/TierPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025,_17_17_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2025__17_17__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/TierListCreator-1.0.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/TierListCreator-1.0.tar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/TierListCreator-1.0.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/TierListCreator-1.0.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/TierListCreator-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/TierListCreator-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/model/ImageTierItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/model/TextTierItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/repository/TierListRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/DeckPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/DeckPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/DeckPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/DeckPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/LanguageSelector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/MainFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/MainFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/util/Localization.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/util/PersistenceUtil$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/util/PersistenceUtil$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/util/PersistenceUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/util/RuntimeTypeAdapterFactory$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/util/RuntimeTypeAdapterFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/TierListCreator-1.0.tar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/TierListCreator-1.0.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/TierListCreator-1.0.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/TierListCreator" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/TierListCreator" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/TierListCreator.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/TierListCreator.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MainFrame.class.uniqueId4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$1.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$1.class.uniqueId0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$2.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$3.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/tlc/ui/messages.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/com/tlc/ui/messages_et.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/TierListCreator" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/TierListCreator.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LanguageSelector.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MainFrame$1.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MainFrame.class.uniqueId6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$1.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$2.class.uniqueId4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$3.class.uniqueId5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/ui/DeckPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/DeckPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/ui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierListManagerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierListManagerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierHeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierHeaderPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tlc/ui/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tlc/ui/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tlc/ui/messages_et.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tlc/ui/messages_et.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tierlists.json" beforeDir="false" afterPath="$PROJECT_DIR$/tierlists.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,31 +155,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.oopProjekt [:com.tlc.Main.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.oopProjekt [:com.tlc.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,6 +219,7 @@
       <workItem from="1743935293564" duration="714000" />
       <workItem from="1743936013462" duration="660000" />
       <workItem from="1743942738637" duration="5845000" />
+      <workItem from="1745607078826" duration="6352000" />
     </task>
     <servers />
   </component>

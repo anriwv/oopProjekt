@@ -3,6 +3,7 @@ package com.tlc.ui;
 import com.tlc.model.Tier;
 import com.tlc.service.TierListService;
 import com.tlc.model.TierList;
+import com.tlc.util.Localization;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,8 +39,8 @@ public class TierListPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
 
         JPanel controlPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        addTierButton = new JButton("+ Add Tier");
-        addTierButton.setToolTipText("Add a new tier row (up to " + MAX_TIERS + " total)");
+        addTierButton = new JButton(Localization.get("add.tier"));
+        addTierButton.setToolTipText(Localization.get("add.new.tier.row") + MAX_TIERS + Localization.get("total"));
         controlPanel.add(addTierButton);
         add(controlPanel, BorderLayout.SOUTH);
 
@@ -51,8 +52,8 @@ public class TierListPanel extends JPanel {
 
                 if (currentTierCount >= MAX_TIERS) {
                     JOptionPane.showMessageDialog(TierListPanel.this,
-                            "Maximum number of tiers (" + MAX_TIERS + ") reached.",
-                            "Cannot Add Tier", JOptionPane.WARNING_MESSAGE);
+                            Localization.get("max.n.tiers") + MAX_TIERS + Localization.get("reached"),
+                            Localization.get("cant.add.tier"), JOptionPane.WARNING_MESSAGE);
                     System.out.println("Add Tier button clicked, but max tiers reached.");
                     return;
                 }
@@ -75,7 +76,7 @@ public class TierListPanel extends JPanel {
                     refresh();
                     System.out.println("Tier '" + newTier.getName() + "' added successfully.");
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(TierListPanel.this, "Error adding tier: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(TierListPanel.this, Localization.get("error.additing.tier") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
                     System.err.println("Error adding tier: " + ex.getMessage());
                 }
             }

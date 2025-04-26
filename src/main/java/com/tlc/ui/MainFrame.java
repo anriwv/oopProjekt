@@ -20,6 +20,7 @@ public class MainFrame extends JFrame {
     private JButton backButton;
     private JLabel editingLabel;
     private TierList currentTierList;
+    private DeckPanel currentDeckPanel;
 
     public MainFrame() {
         setTitle(Localization.get("app.title"));
@@ -64,6 +65,7 @@ public class MainFrame extends JFrame {
     }
 
     public void openTierList(TierList tierList) {
+        this.currentTierList = tierList;
         System.out.println("Opening TierList: " + tierList.getName());
         getContentPane().removeAll();
 
@@ -138,6 +140,8 @@ public class MainFrame extends JFrame {
         if (editingLabel != null && currentTierList != null) {
             editingLabel.setText(String.format(Localization.get("label.editing"), currentTierList.getName()));
         }
+        revalidate();
+        repaint();
     }
 
 

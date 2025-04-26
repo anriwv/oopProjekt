@@ -3,6 +3,7 @@ package com.tlc.ui;
 import com.tlc.model.Tier;
 import com.tlc.model.TierItem;
 import com.tlc.service.TierListService;
+import com.tlc.util.Localization;
 
 import javax.swing.*;
 import java.awt.*;
@@ -50,7 +51,7 @@ public class TierPanel extends JPanel {
         for (int i = 0; i < tier.getItems().size(); i++) {
             TierItem item = tier.getItems().get(i);
             JButton itemButton = new JButton(item.getDisplayContent());
-            itemButton.setToolTipText("Actions for: " + item.getDisplayContent());
+            itemButton.setToolTipText(Localization.get("actions.for") + item.getDisplayContent());
             itemButton.setMargin(new Insets(2, 5, 2, 5));
             final int currentIndex = i;
             final TierItem currentItem = item;
@@ -60,17 +61,17 @@ public class TierPanel extends JPanel {
                 public void actionPerformed(ActionEvent e) {
 
                     String[] options = {
-                            "Move Left",
-                            "Move Right",
-                            "Move to Tier...",
-                            "Move back to Deck",
-                            "Remove",
-                            "Cancel"
+                            Localization.get("move.l"),
+                            Localization.get("move.r"),
+                            Localization.get("move.to.tier"),
+                            Localization.get("move.back.to.deck"),
+                            Localization.get("remove"),
+                            Localization.get("cancel")
                     };
                     int choice = JOptionPane.showOptionDialog(
                             TierPanel.this,
-                            "Choose action for item: '" + currentItem.getDisplayContent() + "'",
-                            "Item Options",
+                            Localization.get("choose.action.for.item") + currentItem.getDisplayContent() + "'",
+                            Localization.get("item.options"),
                             JOptionPane.DEFAULT_OPTION,
                             JOptionPane.PLAIN_MESSAGE,
                             null,
@@ -86,7 +87,7 @@ public class TierPanel extends JPanel {
                                     tierListService.moveItemWithinTier(tier.getName(), currentIndex, currentIndex - 1);
                                     parentPanel.refresh();
                                 } else {
-                                    JOptionPane.showMessageDialog(TierPanel.this, "Item is already at the leftmost position.", "Move Left", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(TierPanel.this, Localization.get("item.left"), Localization.get("move.l"), JOptionPane.INFORMATION_MESSAGE);
                                 }
                                 break;
                             case 1: // Move Right
@@ -95,7 +96,7 @@ public class TierPanel extends JPanel {
                                     tierListService.moveItemWithinTier(tier.getName(), currentIndex, currentIndex + 1);
                                     parentPanel.refresh();
                                 } else {
-                                    JOptionPane.showMessageDialog(TierPanel.this, "Item is already at the rightmost position.", "Move Right", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(TierPanel.this, Localization.get("item.right"), Localization.get("move.r"), JOptionPane.INFORMATION_MESSAGE);
                                 }
                                 break;
                             case 2: // Move to Tier...
@@ -105,15 +106,15 @@ public class TierPanel extends JPanel {
                                         .collect(Collectors.toList());
 
                                 if (otherTierNames.isEmpty()) {
-                                    JOptionPane.showMessageDialog(TierPanel.this, "No other tiers available to move the item to.", "Move to Tier", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(TierPanel.this, Localization.get("no.others.tiers.available.to.move.item"), Localization.get("move.to.tier"), JOptionPane.INFORMATION_MESSAGE);
                                     System.out.println("UI: 'Move to Tier' selected for item '" + currentItem.getDisplayContent() + "' but no other tiers exist.");
                                     break;
                                 }
 
                                 String targetTier = (String) JOptionPane.showInputDialog(
                                         TierPanel.this,
-                                        "Select target tier for '" + currentItem.getDisplayContent() + "':",
-                                        "Move Item to Tier",
+                                        Localization.get("select.target.tier") + currentItem.getDisplayContent() + "':",
+                                        Localization.get("move.item.to.tier"),
                                         JOptionPane.QUESTION_MESSAGE,
                                         null,
                                         otherTierNames.toArray(new String[0]),
@@ -152,7 +153,7 @@ public class TierPanel extends JPanel {
                                 break;
                         }
                     } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(TierPanel.this, "Error performing action: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(TierPanel.this, Localization.get("error.performing.action") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
                         System.err.println("Error performing item action on '" + currentItem.getDisplayContent() + "': " + ex.getMessage());
                         ex.printStackTrace();
 

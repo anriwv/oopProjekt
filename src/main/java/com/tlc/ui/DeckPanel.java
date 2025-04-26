@@ -3,6 +3,7 @@ package com.tlc.ui;
 import com.tlc.model.TextTierItem;
 import com.tlc.model.TierItem;
 import com.tlc.service.TierListService;
+import com.tlc.util.Localization;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,8 +31,8 @@ public class DeckPanel extends JPanel {
 
         JPanel addPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         newItemField = new JTextField(20);
-        JButton addButton = new JButton("Add Text Item to Deck");
-        addPanel.add(new JLabel("New Item:"));
+        JButton addButton = new JButton(Localization.get("add.text.item.to.deck"));
+        addPanel.add(new JLabel(Localization.get("new.item")));
         addPanel.add(newItemField);
         addPanel.add(addButton);
         add(addPanel, BorderLayout.SOUTH);
@@ -57,15 +58,15 @@ public class DeckPanel extends JPanel {
                         .map(t -> t.getName()).toArray(String[]::new);
 
                 if (availableTiers.length == 0) {
-                    JOptionPane.showMessageDialog(this, "No tiers available to add items to.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, Localization.get("no.tiers.available"), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
                     deckList.clearSelection();
                     return;
                 }
 
                 String chosenTier = (String) JOptionPane.showInputDialog(
                         this,
-                        "Select tier to add '" + selectedText + "' to:",
-                        "Add Item to Tier",
+                        Localization.get("select.tier.to.add") + selectedText + Localization.get("to"),
+                        Localization.get("add.item.to.tier"),
                         JOptionPane.QUESTION_MESSAGE,
                         null,
                         availableTiers,
@@ -81,14 +82,14 @@ public class DeckPanel extends JPanel {
                         if (this.tierListPanel != null) {
                             this.tierListPanel.refresh();
                         } else {
-                            JOptionPane.showMessageDialog(this,"Item added to model, but UI refresh failed.", "UI Refresh Warning", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(this,Localization.get("item.added.but.ui.ref.faild"), Localization.get("UI.ref.warning"), JOptionPane.WARNING_MESSAGE);
                         }
 
                         deckListModel.removeElement(selectedText);
                         System.out.println("Deck: Moved '" + selectedText + "' from deck to tier '" + chosenTier + "'.");
                         deckList.clearSelection();
                     } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(this, "Error adding item to tier: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, Localization.get("error.adding.item.to.tier") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
                         System.err.println("Error adding item from deck to tier: " + ex.getMessage());
                         ex.printStackTrace(); // log igaks juhuks
 
@@ -126,7 +127,7 @@ public class DeckPanel extends JPanel {
             }
         } else {
             System.err.println("Deck: Cannot add non-TextTierItem back to deck yet. Item type: " + item.getClass().getSimpleName());
-            JOptionPane.showMessageDialog(this, "Cannot move non-text items back to the deck currently.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Cannot move non-text items back to the deck currently.", Localization.get("warning"), JOptionPane.WARNING_MESSAGE);
         }
     }
 }

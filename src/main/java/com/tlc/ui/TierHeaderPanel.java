@@ -2,6 +2,7 @@ package com.tlc.ui;
 
 import com.tlc.model.Tier;
 import com.tlc.service.TierListService;
+import com.tlc.util.Localization;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,21 +41,21 @@ public class TierHeaderPanel extends JPanel {
 
         // Edit Button - POP-UP menu
         JButton editButton = new JButton("✎");
-        editButton.setToolTipText("Edit tier: " + tier.getName());
+        editButton.setToolTipText(Localization.get("edit.tier") + tier.getName());
         editButton.setMargin(new Insets(2, 2, 2, 2));
 
         JPopupMenu editMenu = new JPopupMenu();
 
         // Rename
-        JMenuItem renameItem = new JMenuItem("Rename Tier");
+        JMenuItem renameItem = new JMenuItem(Localization.get("rename.tier"));
         renameItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String currentName = tier.getName();
                 String newName = (String) JOptionPane.showInputDialog(
                         TierHeaderPanel.this,
-                        "Enter new name for tier:",
-                        "Edit Tier Name",
+                        Localization.get("new.tier.name"),
+                        Localization.get("edit.tier.name"),
                         JOptionPane.PLAIN_MESSAGE,
                         null, // Icon
                         null, // Selection values (none)
@@ -71,7 +72,7 @@ public class TierHeaderPanel extends JPanel {
                         parentPanel.refresh();
                         System.out.println("Tier '" + currentName + "' successfully renamed to '" + updatedName + "'");
                     } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(TierHeaderPanel.this, "Error renaming tier: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(TierHeaderPanel.this, Localization.get("err.renaming.tier") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
                         System.err.println("Error renaming tier: " + ex.getMessage());
                     }
                 } else if (newName != null && newName.trim().equals(currentName)) {
@@ -84,7 +85,7 @@ public class TierHeaderPanel extends JPanel {
         editMenu.add(renameItem);
 
         // Delete
-        JMenuItem deleteItem = new JMenuItem("Delete Tier");
+        JMenuItem deleteItem = new JMenuItem(Localization.get("del.tier"));
         deleteItem.setForeground(Color.RED);
         deleteItem.addActionListener(new ActionListener() {
             @Override
@@ -92,8 +93,8 @@ public class TierHeaderPanel extends JPanel {
                 // Ask for confirmation before deleting the tier
                 int confirm = JOptionPane.showConfirmDialog(
                         TierHeaderPanel.this,
-                        "Are you sure you want to delete tier '" + tier.getName() + "'?",
-                        "Confirm Deletion",
+                        Localization.get("want.del.tier") + tier.getName() + "'?",
+                        Localization.get("confirm.deletion"),
                         JOptionPane.YES_NO_OPTION
                 );
 
@@ -102,7 +103,7 @@ public class TierHeaderPanel extends JPanel {
                         tierListService.deleteTier(tier);
                         parentPanel.refresh();
                     } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(TierHeaderPanel.this, "Error deleting tier: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(TierHeaderPanel.this, Localization.get("err.deleting.tier") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }
