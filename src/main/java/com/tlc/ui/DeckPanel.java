@@ -1,6 +1,7 @@
 package com.tlc.ui;
 
 import com.tlc.model.TextTierItem;
+import com.tlc.model.ImageTierItem;
 import com.tlc.model.TierItem;
 import com.tlc.service.TierListService;
 import com.tlc.util.Localization;
@@ -9,20 +10,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.UUID;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class DeckPanel extends JPanel {
     private TierListService tierListService;
-    private TierListPanel tierListPanel; // refresh jaoks
+    private TierListPanel tierListPanel;
     private DefaultListModel<String> deckListModel;
     private JList<String> deckList;
     private JTextField newItemField;
 
     public DeckPanel(TierListService tierListService, TierListPanel tierListPanel) {
         this.tierListService = tierListService;
-        this.tierListPanel = tierListPanel; // null ka
+        this.tierListPanel = tierListPanel;
         setLayout(new BorderLayout());
-        setBorder(BorderFactory.createTitledBorder("Deck (Items to Place)"));
+        setBorder(BorderFactory.createTitledBorder(Localization.get("deck")));
 
         deckListModel = new DefaultListModel<>();
         deckList = new JList<>(deckListModel);
@@ -31,20 +34,39 @@ public class DeckPanel extends JPanel {
 
         JPanel addPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         newItemField = new JTextField(20);
-        JButton addButton = new JButton(Localization.get("add.text.item.to.deck"));
+        JButton addTextButton = new JButton(Localization.get("add.text.item.to.deck"));
+        JButton addImageButton = new JButton(Localization.get("add.image.item.to.deck"));
         addPanel.add(new JLabel(Localization.get("new.item")));
         addPanel.add(newItemField);
-        addPanel.add(addButton);
+        addPanel.add(addTextButton);
+        addPanel.add(addImageButton);
         add(addPanel, BorderLayout.SOUTH);
 
-        addButton.addActionListener(new ActionListener() {
+        // Add text item
+        addTextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String text = newItemField.getText().trim();
                 if (!text.isEmpty()) {
                     deckListModel.addElement(text);
                     newItemField.setText("");
-                    System.out.println("Deck: Added '" + text + "' to deck list.");
+                    System.out.println("Deck: Added text '" + text + "' to deck list.");
+                }
+            }
+        });
+
+        // Add image item (TODO- salvestada resources kausta)
+        addImageButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setFileFilter(new FileNameExtensionFilter("Image files", "jpg", "jpeg", "png", "gif"));
+                int result = fileChooser.showOpenDialog(DeckPanel.this);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    String imagePath = selectedFile.getAbsolutePath();
+                    deckListModel.addElement("[Image: " + imagePath + "]");
+                    System.out.println("Deck: Added image '" + imagePath + "' to deck list.");
                 }
             }
         });
@@ -75,14 +97,19 @@ public class DeckPanel extends JPanel {
 
                 if (chosenTier != null) {
                     try {
-                        TextTierItem item = new TextTierItem(UUID.randomUUID().toString(), selectedText);
+                        TierItem item;
+                        if (selectedText.startsWith("[Image: ") && selectedText.endsWith("]")) {
+                            String imagePath = selectedText.substring(8, selectedText.length() - 1);
+                            item = new ImageTierItem(UUID.randomUUID().toString(), imagePath);
+                        } else {
+                            item = new TextTierItem(UUID.randomUUID().toString(), selectedText);
+                        }
                         tierListService.addItemToTier(chosenTier, item);
-
 
                         if (this.tierListPanel != null) {
                             this.tierListPanel.refresh();
                         } else {
-                            JOptionPane.showMessageDialog(this,Localization.get("item.added.but.ui.ref.faild"), Localization.get("UI.ref.warning"), JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(this, Localization.get("item.added.but.ui.ref.faild"), Localization.get("UI.ref.warning"), JOptionPane.WARNING_MESSAGE);
                         }
 
                         deckListModel.removeElement(selectedText);
@@ -91,8 +118,7 @@ public class DeckPanel extends JPanel {
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(this, Localization.get("error.adding.item.to.tier") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
                         System.err.println("Error adding item from deck to tier: " + ex.getMessage());
-                        ex.printStackTrace(); // log igaks juhuks
-
+                        ex.printStackTrace();
                         deckList.clearSelection();
                     }
                 } else {
@@ -103,31 +129,29 @@ public class DeckPanel extends JPanel {
         });
     }
 
-    /**
-     * Sets the reference to the TierListPanel.
-     * This is necessary because DeckPanel is created before TierListPanel,
-     * but needs to call refresh() on it later.
-     *
-     * @param tierListPanel The TierListPanel instance.
-     */
     public void setTierListPanel(TierListPanel tierListPanel) {
         this.tierListPanel = tierListPanel;
-        System.out.println("DeckPanel: TierListPanel reference set."); // Log confirmation
     }
-
 
     public void addItemToDeck(TierItem item) {
         if (item instanceof TextTierItem) {
             String text = ((TextTierItem) item).getText();
             if (!deckListModel.contains(text)) {
                 deckListModel.addElement(text);
-                System.out.println("Deck: Added item '" + text + "' back to deck from a tier.");
             } else {
-                System.out.println("Deck: Item '" + text + "' is already in the deck, not adding again.");
+            }
+        } else if (item instanceof ImageTierItem) {
+            String imagePath = ((ImageTierItem) item).getImagePath();
+            String displayText = "[Image: " + imagePath + "]";
+            if (!deckListModel.contains(displayText)) {
+                deckListModel.addElement(displayText);
+                System.out.println("Deck: Added image item '" + imagePath + "' back to deck from a tier.");
+            } else {
+                System.out.println("Deck: Image item '" + imagePath + "' is already in the deck, not adding again.");
             }
         } else {
-            System.err.println("Deck: Cannot add non-TextTierItem back to deck yet. Item type: " + item.getClass().getSimpleName());
-            JOptionPane.showMessageDialog(this, "Cannot move non-text items back to the deck currently.", Localization.get("warning"), JOptionPane.WARNING_MESSAGE);
+            System.err.println("Deck: Cannot add unknown TierItem type back to deck. Item type: " + item.getClass().getSimpleName());
+            JOptionPane.showMessageDialog(this, Localization.get("cant.move.item"), Localization.get("warning"), JOptionPane.WARNING_MESSAGE);
         }
     }
 }

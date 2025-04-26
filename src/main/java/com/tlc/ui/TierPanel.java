@@ -2,6 +2,8 @@ package com.tlc.ui;
 
 import com.tlc.model.Tier;
 import com.tlc.model.TierItem;
+import com.tlc.model.TextTierItem;
+import com.tlc.model.ImageTierItem;
 import com.tlc.service.TierListService;
 import com.tlc.util.Localization;
 
@@ -9,9 +11,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-
+import javax.imageio.ImageIO;
 
 public class TierPanel extends JPanel {
     private Tier tier;
@@ -25,7 +29,7 @@ public class TierPanel extends JPanel {
         this.tier = tier;
         this.tierListService = tierListService;
         this.parentPanel = parentPanel;
-        this.deckPanel = deckPanel; // Store the reference
+        this.deckPanel = deckPanel;
         setLayout(new BorderLayout(10, 0));
         setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
 
@@ -33,13 +37,10 @@ public class TierPanel extends JPanel {
         add(headerPanel, BorderLayout.WEST);
 
         itemsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 5));
-        // itemsPanel.setBackground(Color.WHITE);
         JScrollPane itemsScrollPane = new JScrollPane(itemsPanel);
         itemsScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         itemsScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         itemsScrollPane.setBorder(null);
-        // itemsScrollPane.getViewport().setBackground(Color.WHITE);
-
         add(itemsScrollPane, BorderLayout.CENTER);
 
         refreshItems();
@@ -50,7 +51,29 @@ public class TierPanel extends JPanel {
 
         for (int i = 0; i < tier.getItems().size(); i++) {
             TierItem item = tier.getItems().get(i);
-            JButton itemButton = new JButton(item.getDisplayContent());
+            JButton itemButton;
+
+            if (item instanceof ImageTierItem) {
+                String imagePath = ((ImageTierItem) item).getImagePath();
+                try {
+                    // loading from resources first
+                    BufferedImage img;
+                    java.net.URL imgURL = getClass().getResource("/com.tlc.ui/" + imagePath);
+                    if (imgURL != null) {
+                        img = ImageIO.read(imgURL);
+                    } else {
+                        img = ImageIO.read(new java.io.File(imagePath));
+                    }
+                    Image scaledImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                    itemButton = new JButton(new ImageIcon(scaledImg));
+                } catch (IOException e) {
+                    itemButton = new JButton(Localization.get("image.error") + imagePath + "]");
+                    System.err.println("Failed to load image: " + imagePath + " - " + e.getMessage());
+                }
+            } else {
+                itemButton = new JButton(item.getDisplayContent());
+            }
+
             itemButton.setToolTipText(Localization.get("actions.for") + item.getDisplayContent());
             itemButton.setMargin(new Insets(2, 5, 2, 5));
             final int currentIndex = i;
@@ -59,7 +82,6 @@ public class TierPanel extends JPanel {
             itemButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
                     String[] options = {
                             Localization.get("move.l"),
                             Localization.get("move.r"),
@@ -102,7 +124,7 @@ public class TierPanel extends JPanel {
                             case 2: // Move to Tier...
                                 List<String> otherTierNames = tierListService.getTierList().getTiers().stream()
                                         .map(Tier::getName)
-                                        .filter(name -> !name.equalsIgnoreCase(tier.getName())) //  - hetketier
+                                        .filter(name -> !name.equalsIgnoreCase(tier.getName()))
                                         .collect(Collectors.toList());
 
                                 if (otherTierNames.isEmpty()) {
@@ -118,7 +140,7 @@ public class TierPanel extends JPanel {
                                         JOptionPane.QUESTION_MESSAGE,
                                         null,
                                         otherTierNames.toArray(new String[0]),
-                                        otherTierNames.get(0) // default
+                                        otherTierNames.get(0)
                                 );
 
                                 if (targetTier != null) {
@@ -131,13 +153,9 @@ public class TierPanel extends JPanel {
                                 break;
                             case 3: // Move back to Deck
                                 System.out.println("UI: Attempting move item '" + currentItem.getDisplayContent() + "' from tier '" + tier.getName() + "' back to deck.");
-
                                 TierItem removedItem = tier.getItems().remove(currentIndex);
-
                                 tierListService.getTierList().updateModificationTime();
-
                                 deckPanel.addItemToDeck(removedItem);
-
                                 parentPanel.refresh();
                                 System.out.println("UI: Item '" + removedItem.getDisplayContent() + "' moved back to deck.");
                                 break;
@@ -156,7 +174,6 @@ public class TierPanel extends JPanel {
                         JOptionPane.showMessageDialog(TierPanel.this, Localization.get("error.performing.action") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
                         System.err.println("Error performing item action on '" + currentItem.getDisplayContent() + "': " + ex.getMessage());
                         ex.printStackTrace();
-
                         parentPanel.refresh();
                     }
                 }

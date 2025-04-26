@@ -3,7 +3,7 @@
     {
       "name": "list2",
       "creationTime": "2025-04-06T03:17:22.428305",
-      "modificationTime": "2025-04-26T15:26:29.645488",
+      "modificationTime": "2025-04-26T17:00:50.402527",
       "tiers": [
         {
           "name": "A",
@@ -47,17 +47,34 @@
     {
       "name": "list1",
       "creationTime": "2025-04-26T14:45:02.845927",
-      "modificationTime": "2025-04-26T15:26:29.645568",
+      "modificationTime": "2025-04-26T17:00:50.402616",
       "tiers": [
         {
           "name": "S",
           "color": "#FF0000",
-          "items": []
+          "items": [
+            {
+              "text": "tartu",
+              "id": "8a4b04d9-d12f-4319-afd1-a5938fdcc6b7",
+              "type": "text"
+            },
+            {
+              "imagePath": "/Users/anrisokolov/IdeaProjects/oopProjekt/src/main/resources/com/tlc/ui/logo.png",
+              "id": "63121be4-424b-4c36-88a1-3cce0824ae56",
+              "type": "image"
+            }
+          ]
         },
         {
           "name": "A",
           "color": "#FFA500",
-          "items": []
+          "items": [
+            {
+              "imagePath": "/Users/anrisokolov/Downloads/SAKSAMAA/Train/Managed_jan25/MAN1001.png",
+              "id": "fcf8e45d-c254-4cfd-b70b-bb688676087b",
+              "type": "image"
+            }
+          ]
         },
         {
           "name": "B",
@@ -73,13 +90,18 @@
           "name": "D",
           "color": "#90EE90",
           "items": []
+        },
+        {
+          "name": "F",
+          "color": "#808080",
+          "items": []
         }
       ]
     },
     {
       "name": "a",
       "creationTime": "2025-04-26T14:46:04.994181",
-      "modificationTime": "2025-04-26T15:26:29.645589",
+      "modificationTime": "2025-04-26T17:00:50.402626",
       "tiers": [
         {
           "name": "S",
@@ -99,6 +121,11 @@
               "text": "74",
               "id": "2d27eee5-5b1d-43ca-a2aa-1374bb030b9f",
               "type": "text"
+            },
+            {
+              "imagePath": "/Users/anrisokolov/Downloads/Rotating_earth_(large).gif",
+              "id": "f996b4c7-18ac-4326-a400-e0a3fbc90444",
+              "type": "image"
             }
           ]
         },

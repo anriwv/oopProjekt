@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TierListPanel extends JPanel {
     private TierListService tierListService;
-    private DeckPanel deckPanel; // Reference to the DeckPanel
+    private DeckPanel deckPanel;
     private JPanel tiersContainerPanel;
     private JButton addTierButton;
     private static final int MAX_TIERS = 6;
@@ -28,14 +28,11 @@ public class TierListPanel extends JPanel {
 
         tiersContainerPanel = new JPanel();
         tiersContainerPanel.setLayout(new BoxLayout(tiersContainerPanel, BoxLayout.Y_AXIS));
-        // tiersContainerPanel.setBackground(Color.WHITE);
 
         JScrollPane scrollPane = new JScrollPane(tiersContainerPanel);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
-        // scrollPane.getViewport().setBackground(Color.WHITE);
-
         add(scrollPane, BorderLayout.CENTER);
 
         JPanel controlPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -85,14 +82,12 @@ public class TierListPanel extends JPanel {
         refresh();
     }
 
-
     public void refresh() {
         System.out.println("Refreshing TierListPanel...");
         tiersContainerPanel.removeAll();
 
         List<Tier> tiers = tierListService.getTierList().getTiers();
         for (Tier tier : tiers) {
-
             TierPanel tierPanel = new TierPanel(tier, tierListService, this, deckPanel);
             tiersContainerPanel.add(tierPanel);
             tiersContainerPanel.add(Box.createRigidArea(new Dimension(0, 5)));
