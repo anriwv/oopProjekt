@@ -4,6 +4,7 @@ import com.tlc.model.Tier;
 import com.tlc.model.TierItem;
 import com.tlc.model.TextTierItem;
 import com.tlc.model.ImageTierItem;
+import com.tlc.repository.ImageStorage;
 import com.tlc.service.TierListService;
 import com.tlc.util.Localization;
 
@@ -11,11 +12,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.imageio.ImageIO;
 
 public class TierPanel extends JPanel {
     private Tier tier;
@@ -54,21 +52,21 @@ public class TierPanel extends JPanel {
             JButton itemButton;
 
             if (item instanceof ImageTierItem) {
-                String imagePath = ((ImageTierItem) item).getImagePath();
-                try {
-                    // loading from resources first
-                    BufferedImage img;
-                    java.net.URL imgURL = getClass().getResource("/com.tlc.ui/" + imagePath);
-                    if (imgURL != null) {
-                        img = ImageIO.read(imgURL);
-                    } else {
-                        img = ImageIO.read(new java.io.File(imagePath));
+                ImageTierItem imageItem = (ImageTierItem) item;
+                ImageIcon icon = imageItem.getImageIcon();
+                if (icon != null) {
+                    try {
+                        Image scaledImg = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                        itemButton = new JButton(new ImageIcon(scaledImg));
+                        itemButton.setText("Image: " + item.getId());
+                        itemButton.setVerticalTextPosition(SwingConstants.BOTTOM);
+                        itemButton.setHorizontalTextPosition(SwingConstants.CENTER);
+                    } catch (Exception e) {
+                        itemButton = new JButton(Localization.get("image.error") + item.getId());
+                        System.err.println("Failed to load image for item " + item.getId() + ": " + e.getMessage());
                     }
-                    Image scaledImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-                    itemButton = new JButton(new ImageIcon(scaledImg));
-                } catch (IOException e) {
-                    itemButton = new JButton(Localization.get("image.error") + imagePath + "]");
-                    System.err.println("Failed to load image: " + imagePath + " - " + e.getMessage());
+                } else {
+                    itemButton = new JButton(Localization.get("image.error") + item.getId());
                 }
             } else {
                 itemButton = new JButton(item.getDisplayContent());
@@ -129,7 +127,6 @@ public class TierPanel extends JPanel {
 
                                 if (otherTierNames.isEmpty()) {
                                     JOptionPane.showMessageDialog(TierPanel.this, Localization.get("no.others.tiers.available.to.move.item"), Localization.get("move.to.tier"), JOptionPane.INFORMATION_MESSAGE);
-                                    System.out.println("UI: 'Move to Tier' selected for item '" + currentItem.getDisplayContent() + "' but no other tiers exist.");
                                     break;
                                 }
 
@@ -144,36 +141,30 @@ public class TierPanel extends JPanel {
                                 );
 
                                 if (targetTier != null) {
-                                    System.out.println("UI: Attempting move item '" + currentItem.getDisplayContent() + "' from '" + tier.getName() + "' to '" + targetTier + "'");
                                     tierListService.moveItemToTier(tier.getName(), currentIndex, targetTier);
                                     parentPanel.refresh();
-                                } else {
-                                    System.out.println("UI: 'Move to Tier' cancelled for item '" + currentItem.getDisplayContent() + "'");
                                 }
                                 break;
                             case 3: // Move back to Deck
-                                System.out.println("UI: Attempting move item '" + currentItem.getDisplayContent() + "' from tier '" + tier.getName() + "' back to deck.");
                                 TierItem removedItem = tier.getItems().remove(currentIndex);
                                 tierListService.getTierList().updateModificationTime();
                                 deckPanel.addItemToDeck(removedItem);
                                 parentPanel.refresh();
-                                System.out.println("UI: Item '" + removedItem.getDisplayContent() + "' moved back to deck.");
                                 break;
                             case 4: // Remove Item
-                                System.out.println("UI: Removing item '" + currentItem.getDisplayContent() + "' permanently from tier '" + tier.getName() + "'");
                                 tier.removeItem(currentItem);
+                                if (currentItem instanceof ImageTierItem) {
+                                    ImageStorage.removeImage(currentItem.getId()); // Remove image data
+                                }
                                 tierListService.getTierList().updateModificationTime();
                                 parentPanel.refresh();
                                 break;
-                            case 5: // Cancel or closed dialog
+                            case 5: // Cancel
                             default:
-                                System.out.println("UI: Item action cancelled for '" + currentItem.getDisplayContent() + "'");
                                 break;
                         }
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(TierPanel.this, Localization.get("error.performing.action") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
-                        System.err.println("Error performing item action on '" + currentItem.getDisplayContent() + "': " + ex.getMessage());
-                        ex.printStackTrace();
                         parentPanel.refresh();
                     }
                 }

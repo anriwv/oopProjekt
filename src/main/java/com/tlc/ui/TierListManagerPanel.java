@@ -1,16 +1,22 @@
 package com.tlc.ui;
 
+import com.tlc.model.ImageTierItem;
 import com.tlc.model.Tier;
 import com.tlc.model.TierList;
+import com.tlc.model.TierItem;
 import com.tlc.repository.TierListRepository;
+import com.tlc.repository.ImageStorage;
 import com.tlc.util.Localization;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
 public class TierListManagerPanel extends JPanel {
     private TierListRepository repository;
@@ -33,22 +39,19 @@ public class TierListManagerPanel extends JPanel {
         languageSelector.addLanguageChangeListener(e -> {
             updateLanguage(languageSelector.getSelectedLanguage());
             updateUIText();
-
         });
         add(languageSelector, BorderLayout.NORTH);
 
-        // Tier list
         listModel = new DefaultListModel<>();
         tierListDisplay = new JList<>(listModel);
         tierListDisplay.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane scrollPane = new JScrollPane(tierListDisplay);
         add(scrollPane, BorderLayout.CENTER);
 
-        // Nuppude paneel
         JPanel buttonPanel = new JPanel(new FlowLayout());
         openButton = new JButton(Localization.get("open.selected"));
         newButton = new JButton(Localization.get("new.list"));
-        deleteButton = new JButton(Localization.get(("delete.selected")));
+        deleteButton = new JButton(Localization.get("delete.selected"));
         buttonPanel.add(openButton);
         buttonPanel.add(newButton);
         buttonPanel.add(deleteButton);
@@ -56,7 +59,6 @@ public class TierListManagerPanel extends JPanel {
 
         refreshList();
 
-        // Open selected tl
         openButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,13 +71,11 @@ public class TierListManagerPanel extends JPanel {
             }
         });
 
-        // uus tl
         newButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name = JOptionPane.showInputDialog(Localization.get("new.tier.list.name"));
                 if (name != null && !name.trim().isEmpty()) {
-
                     String numStr = JOptionPane.showInputDialog(Localization.get("enter.number.of.tiers"));
                     int numTiers = 0;
                     try {
@@ -96,7 +96,7 @@ public class TierListManagerPanel extends JPanel {
                         newTierList.addTier(new Tier(defaultNames[i], defaultColors[i]));
                     }
 
-                    // salvesta repository's
+
                     repository.saveTierList(newTierList);
                     refreshList();
                     System.out.println(Localization.get("created.new.tier.list") + name + Localization.get("with") + numTiers + Localization.get("tiers"));
@@ -104,7 +104,6 @@ public class TierListManagerPanel extends JPanel {
             }
         });
 
-        // kustuta tl
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -117,15 +116,26 @@ public class TierListManagerPanel extends JPanel {
                             JOptionPane.YES_NO_OPTION
                     );
 
-
-                    // kustuta repository's
                     if (confirm == JOptionPane.YES_OPTION) {
                         try {
+                            for (Tier tier : selected.getTiers()) {
+                                for (TierItem item : tier.getItems()) {
+                                    if (item instanceof ImageTierItem) {
+                                        ImageStorage.removeImage(item.getId());
+                                    }
+                                }
+                            }
                             repository.deleteTierList(selected);
                             refreshList();
-                            JOptionPane.showMessageDialog(TierListManagerPanel.this, "TierList " + selected + Localization.get("deleted.successfully"), Localization.get("success"), JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(TierListManagerPanel.this,
+                                    "TierList " + selected + Localization.get("deleted.successfully"),
+                                    Localization.get("success"),
+                                    JOptionPane.INFORMATION_MESSAGE);
                         } catch (Exception ex) {
-                            JOptionPane.showMessageDialog(TierListManagerPanel.this, Localization.get("error.deleting.TierList") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(TierListManagerPanel.this,
+                                    Localization.get("error.deleting.TierList") + ex.getMessage(),
+                                    Localization.get("error"),
+                                    JOptionPane.ERROR_MESSAGE);
                         }
                     }
                 } else {
@@ -133,21 +143,17 @@ public class TierListManagerPanel extends JPanel {
                 }
             }
         });
-
-
     }
 
     public void refreshList() {
         listModel.clear();
         List<TierList> lists = repository.getAllTierLists();
-
         for (TierList tl : lists) {
             listModel.addElement(tl);
         }
     }
 
     public void updateUIText() {
-
         mainFrame.setTitle(Localization.get("app.title"));
         openButton.setText(Localization.get("open.selected"));
         newButton.setText(Localization.get("new.list"));

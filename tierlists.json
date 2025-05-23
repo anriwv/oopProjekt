@@ -1,66 +1,20 @@
 {
   "tierLists": [
     {
-      "name": "list2",
-      "creationTime": "2025-04-06T03:17:22.428305",
-      "modificationTime": "2025-04-26T17:00:50.402527",
-      "tiers": [
-        {
-          "name": "A",
-          "color": "#FFA500",
-          "items": [
-            {
-              "text": "qqq",
-              "id": "cb07aa7c-5646-412d-9826-31407b9ea373",
-              "type": "text"
-            },
-            {
-              "text": "qq",
-              "id": "5183ba28-bc45-46d0-845a-b6670da2ad32",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "name": "D",
-          "color": "#90EE90",
-          "items": [
-            {
-              "text": "ww",
-              "id": "89a6167c-ece4-4a28-8b74-46c86fc4de20",
-              "type": "text"
-            },
-            {
-              "text": "ww",
-              "id": "b94a2ca5-29d1-43cd-93a5-02e91190e971",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "name": "C",
-          "color": "#FFD700",
-          "items": []
-        }
-      ]
-    },
-    {
-      "name": "list1",
-      "creationTime": "2025-04-26T14:45:02.845927",
-      "modificationTime": "2025-04-26T17:00:50.402616",
+      "name": "asf",
+      "creationTime": "2025-05-23T17:58:43.284238",
+      "modificationTime": "2025-05-23T18:47:34.329892",
       "tiers": [
         {
           "name": "S",
           "color": "#FF0000",
           "items": [
             {
-              "text": "tartu",
-              "id": "8a4b04d9-d12f-4319-afd1-a5938fdcc6b7",
-              "type": "text"
+              "id": "2f7364ba-0d26-405b-95fa-444405573c20",
+              "type": "image"
             },
             {
-              "imagePath": "/Users/anrisokolov/IdeaProjects/oopProjekt/src/main/resources/com/tlc/ui/logo.png",
-              "id": "63121be4-424b-4c36-88a1-3cce0824ae56",
+              "id": "98a5b8cb-2940-45c2-87ce-84aa8b81ee6a",
               "type": "image"
             }
           ]
@@ -68,80 +22,38 @@
         {
           "name": "A",
           "color": "#FFA500",
-          "items": [
-            {
-              "imagePath": "/Users/anrisokolov/Downloads/SAKSAMAA/Train/Managed_jan25/MAN1001.png",
-              "id": "fcf8e45d-c254-4cfd-b70b-bb688676087b",
-              "type": "image"
-            }
-          ]
+          "items": []
         },
         {
           "name": "B",
           "color": "#FFD700",
-          "items": []
-        },
-        {
-          "name": "C",
-          "color": "#FFF44F",
-          "items": []
-        },
-        {
-          "name": "D",
-          "color": "#90EE90",
-          "items": []
-        },
-        {
-          "name": "F",
-          "color": "#808080",
           "items": []
         }
       ]
     },
     {
       "name": "a",
-      "creationTime": "2025-04-26T14:46:04.994181",
-      "modificationTime": "2025-04-26T17:00:50.402626",
+      "creationTime": "2025-05-23T18:17:53.510477",
+      "modificationTime": "2025-05-23T18:47:34.329972",
       "tiers": [
         {
           "name": "S",
           "color": "#FF0000",
           "items": [
             {
-              "text": "123",
-              "id": "a36c0081-6588-4226-aa02-1a3df0d16987",
+              "text": "asad",
+              "id": "db2ef4ea-06c1-4bde-98bc-3b5af0f1a2cc",
               "type": "text"
             },
             {
-              "text": "7",
-              "id": "e89533fc-3f6a-491f-8bae-30030c139814",
-              "type": "text"
-            },
-            {
-              "text": "74",
-              "id": "2d27eee5-5b1d-43ca-a2aa-1374bb030b9f",
-              "type": "text"
-            },
-            {
-              "imagePath": "/Users/anrisokolov/Downloads/Rotating_earth_(large).gif",
-              "id": "f996b4c7-18ac-4326-a400-e0a3fbc90444",
+              "id": "b4940aff-751d-4485-b681-f44a54613f6e",
               "type": "image"
             }
           ]
         },
         {
-          "name": "AA",
+          "name": "A",
           "color": "#FFA500",
-          "items": []
-        },
-        {
-          "name": "B",
-          "color": "#FFD700",
-          "items": []
-        },
-        {
-          "name": "as",
-          "color": "#FFF44F",
           "items": []
         }
       ]

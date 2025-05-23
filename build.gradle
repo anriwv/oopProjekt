@@ -14,8 +14,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.google.code.gson:gson:2.10'
+    implementation 'com.google.code.gson:gson:2.10.1'
     testImplementation 'junit:junit:4.13.2'
+    implementation 'com.itextpdf:itext7-core:7.2.5'
 }
 
 application {

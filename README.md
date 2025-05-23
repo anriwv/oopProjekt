@@ -26,16 +26,17 @@ On plaanis migreerida andmete salvestamine tugevama andmebaasilahenduse poole ni
    *   Ühest tasemest teise.
    *   Tasemelt tagasi "Pakki" (vt Märkused).
 4.  [X] Graafiline kasutajaliides (Java Swing).
-5.  [ ] Elementidele saab lisada pilte või logosid (arendamisel).
+5.  [X] Elementidele saab lisada pilte või logosid (`images.dat` faili kaudu + arendamisel).
 6.  [X] Andmete salvestamine ja laadimine (`tierlists.json` faili kaudu).
 
 ### Lisafunktsionaalsus:
 
 -   [X] Mitme erineva tasemeloendi loomine ja haldamine.
 -   [X] Värvide ja stiilide kohandamine (tasemetel on fikseeritud värvid, nimed on muudetavad).
--   [ ] Koostöö võimaldamine lokaalses võrgus
+-   [ ] Double-click'i kaudu tasemeloendi avamine
 -   [ ] Tagasivõtmise (undo) funktsioon
 -   [ ] Elementide lohistamine (drag-and-drop) tasemete vahel
+-   [ ] Koostöö võimaldamine lokaalses võrgus
 
 ### Tulevased Plaanid:
 

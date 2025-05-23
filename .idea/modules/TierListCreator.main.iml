@@ -9,6 +9,22 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.10" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.10.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:barcodes:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:font-asian:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:sign:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:forms:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:hyph:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:svg:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:styled-xml-parser:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:layout:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:pdfa:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:kernel:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:io:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.36" level="project" />
+    <orderEntry type="library" name="Gradle: org.bouncycastle:bcpkix-jdk15on:1.70" level="project" />
+    <orderEntry type="library" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.70" level="project" />
+    <orderEntry type="library" name="Gradle: com.itextpdf:commons:7.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: org.bouncycastle:bcutil-jdk15on:1.70" level="project" />
   </component>
 </module>
