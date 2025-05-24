@@ -93,6 +93,9 @@ public class TierListPanel extends JPanel {
             tiersContainerPanel.add(Box.createRigidArea(new Dimension(0, 5)));
         }
 
+        revalidate();
+        repaint();
+
         addTierButton.setEnabled(tiers.size() < MAX_TIERS);
 
         tiersContainerPanel.revalidate();
@@ -101,4 +104,5 @@ public class TierListPanel extends JPanel {
         repaint();
         System.out.println("TierListPanel refresh complete. Tiers displayed: " + tiers.size());
     }
+
 }

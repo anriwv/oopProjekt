@@ -10,7 +10,6 @@ import com.tlc.util.Localization;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Files;
 import java.util.UUID;
@@ -22,6 +21,9 @@ public class DeckPanel extends JPanel {
     private DefaultListModel<TierItem> deckListModel;
     private JList<TierItem> deckList;
     private JTextField newItemField;
+    private JLabel newItemLabel;
+    private JButton addTextButton;
+    private JButton addImageButton;
 
     public DeckPanel(TierListService tierListService, TierListPanel tierListPanel) {
         this.tierListService = tierListService;
@@ -36,9 +38,10 @@ public class DeckPanel extends JPanel {
 
         JPanel addPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         newItemField = new JTextField(20);
-        JButton addTextButton = new JButton(Localization.get("add.text.item.to.deck"));
-        JButton addImageButton = new JButton(Localization.get("add.image.item.to.deck"));
-        addPanel.add(new JLabel(Localization.get("new.item")));
+        newItemLabel = new JLabel(Localization.get("new.item"));
+        addTextButton = new JButton(Localization.get("add.text.item.to.deck"));
+        addImageButton = new JButton(Localization.get("add.image.item.to.deck"));
+        addPanel.add(newItemLabel);
         addPanel.add(newItemField);
         addPanel.add(addTextButton);
         addPanel.add(addImageButton);
@@ -142,4 +145,18 @@ public class DeckPanel extends JPanel {
         }
     }
 
+    public void refresh() {
+        deckList.setModel(deckListModel);
+        deckList.revalidate();
+        deckList.repaint();
+    }
+
+    public void updateUIText() {
+        setBorder(BorderFactory.createTitledBorder(Localization.get("deck")));
+        newItemLabel.setText(Localization.get("new.item"));
+        addTextButton.setText(Localization.get("add.text.item.to.deck"));
+        addImageButton.setText(Localization.get("add.image.item.to.deck"));
+        revalidate();
+        repaint();
+    }
 }

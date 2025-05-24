@@ -45,8 +45,6 @@ public class MainFrame extends JFrame {
         });
     }
 
-
-    // Nüüd salvestatakse mitte ainult "Back & Save" korral
     public void saveRepository() {
         try {
             for (TierList tierList : repository.getAllTierLists()) {
@@ -70,15 +68,16 @@ public class MainFrame extends JFrame {
         getContentPane().removeAll();
 
         TierListService service = new TierListService(tierList);
-        DeckPanel deckPanel = new DeckPanel(service, null);
-        TierListPanel tierListPanel = new TierListPanel(service, deckPanel);
-        deckPanel.setTierListPanel(tierListPanel);
+        currentDeckPanel = new DeckPanel(service, null);
+        TierListPanel tierListPanel = new TierListPanel(service, currentDeckPanel);
+        currentDeckPanel.setTierListPanel(tierListPanel);
 
+        managerPanel.setDeckPanel(currentDeckPanel);
 
         JPanel detailPanel = new JPanel(new BorderLayout(0, 10));
         detailPanel.add(tierListPanel, BorderLayout.CENTER);
-        detailPanel.add(deckPanel, BorderLayout.SOUTH);
-        deckPanel.setPreferredSize(new Dimension(0, 150));
+        detailPanel.add(currentDeckPanel, BorderLayout.SOUTH);
+        currentDeckPanel.setPreferredSize(new Dimension(0, 150));
 
         backButton = new JButton();
         editingLabel = new JLabel();
@@ -94,14 +93,18 @@ public class MainFrame extends JFrame {
             repaint();
         });
 
-
-        // 2. etapp. Keeled
         languageSelector = new LanguageSelector();
         languageSelector.setSelectedLanguage(Localization.getLocale().getLanguage().equals("et") ? "Estonian" : "English");
         languageSelector.addLanguageChangeListener(e -> {
             updateLanguage(languageSelector.getSelectedLanguage());
             updateUIText();
             managerPanel.updateUIText();
+            if (currentDeckPanel != null) {
+                currentDeckPanel.updateUIText();
+            }
+            if (tierListPanel != null) {
+                tierListPanel.refresh();
+            }
         });
 
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -143,6 +146,4 @@ public class MainFrame extends JFrame {
         revalidate();
         repaint();
     }
-
-
 }

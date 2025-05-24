@@ -12,11 +12,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.io.InputStream;
+import java.awt.event.MouseAdapter; // uus
+import java.awt.event.MouseEvent;  // uus
 import java.util.List;
 import java.util.Locale;
-import java.util.UUID;
 
 public class TierListManagerPanel extends JPanel {
     private TierListRepository repository;
@@ -27,6 +26,7 @@ public class TierListManagerPanel extends JPanel {
     private JButton deleteButton;
     private MainFrame mainFrame;
     private LanguageSelector languageSelector;
+    private DeckPanel deckPanel;
 
     public TierListManagerPanel(TierListRepository repository, MainFrame mainFrame) {
         this.repository = repository;
@@ -40,6 +40,7 @@ public class TierListManagerPanel extends JPanel {
             updateLanguage(languageSelector.getSelectedLanguage());
             updateUIText();
         });
+
         add(languageSelector, BorderLayout.NORTH);
 
         listModel = new DefaultListModel<>();
@@ -47,6 +48,20 @@ public class TierListManagerPanel extends JPanel {
         tierListDisplay.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane scrollPane = new JScrollPane(tierListDisplay);
         add(scrollPane, BorderLayout.CENTER);
+
+        // double click
+        tierListDisplay.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2 && !e.isConsumed()) {
+                    TierList selected = tierListDisplay.getSelectedValue();
+                    if (selected != null) {
+                        mainFrame.openTierList(selected);
+                        System.out.println("Double-clicked " + selected.getName());
+                    }
+                }
+            }
+        });
 
         JPanel buttonPanel = new JPanel(new FlowLayout());
         openButton = new JButton(Localization.get("open.selected"));
@@ -76,6 +91,17 @@ public class TierListManagerPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 String name = JOptionPane.showInputDialog(Localization.get("new.tier.list.name"));
                 if (name != null && !name.trim().isEmpty()) {
+
+                    String trimmedName = name.trim();
+                    if (repository.getAllTierLists().stream().anyMatch(tl -> tl.getName().equalsIgnoreCase(trimmedName))) {
+                        JOptionPane.showMessageDialog(TierListManagerPanel.this,
+                                Localization.get("tier.list.name.exists"),
+                                Localization.get("warning"),
+                                JOptionPane.WARNING_MESSAGE);
+                        System.out.println("Attempted to create TierList with existing name: " + trimmedName);
+                        return;
+                    }
+
                     String numStr = JOptionPane.showInputDialog(Localization.get("enter.number.of.tiers"));
                     int numTiers = 0;
                     try {
@@ -90,16 +116,15 @@ public class TierListManagerPanel extends JPanel {
                     String[] defaultNames = {"S", "A", "B", "C", "D", "F"};
                     String[] defaultColors = {"#FF0000", "#FFA500", "#FFD700", "#FFF44F", "#90EE90", "#808080"};
 
-                    TierList newTierList = new TierList(name.trim());
+                    TierList newTierList = new TierList(trimmedName);
 
                     for (int i = 0; i < numTiers; i++) {
                         newTierList.addTier(new Tier(defaultNames[i], defaultColors[i]));
                     }
 
-
                     repository.saveTierList(newTierList);
                     refreshList();
-                    System.out.println(Localization.get("created.new.tier.list") + name + Localization.get("with") + numTiers + Localization.get("tiers"));
+                    System.out.println(Localization.get("created.new.tier.list") + trimmedName + Localization.get("with") + numTiers + Localization.get("tiers"));
                 }
             }
         });
@@ -159,6 +184,11 @@ public class TierListManagerPanel extends JPanel {
         newButton.setText(Localization.get("new.list"));
         deleteButton.setText(Localization.get("delete.selected"));
         languageSelector.setLabelText(Localization.get("language"));
+
+        if (deckPanel != null) {
+            deckPanel.refresh();
+        }
+
         revalidate();
         repaint();
     }
@@ -174,4 +204,9 @@ public class TierListManagerPanel extends JPanel {
                 break;
         }
     }
+
+    public void setDeckPanel(DeckPanel deckPanel) {
+        this.deckPanel = deckPanel;
+    }
+
 }
