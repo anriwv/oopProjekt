@@ -33,7 +33,7 @@ On plaanis migreerida andmete salvestamine tugevama andmebaasilahenduse poole ni
 
 -   [X] Mitme erineva tasemeloendi loomine ja haldamine.
 -   [X] Värvide ja stiilide kohandamine (tasemetel on fikseeritud värvid, nimed on muudetavad).
--   [ ] Double-click'i kaudu tasemeloendi avamine
+-   [X] Double-click'i kaudu tasemeloendi avamine
 -   [ ] Tagasivõtmise (undo) funktsioon
 -   [ ] Elementide lohistamine (drag-and-drop) tasemete vahel
 -   [ ] Koostöö võimaldamine lokaalses võrgus

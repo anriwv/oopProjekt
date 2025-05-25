@@ -44,7 +44,7 @@ public class TierHeaderPanel extends JPanel {
         editButton.setToolTipText(Localization.get("edit.tier") + tier.getName());
         editButton.setMargin(new Insets(2, 2, 2, 2));
 
-        JPopupMenu editMenu = new JPopupMenu();
+        JPopupMenu editMenu = new JPopupMenu(); // valikud: rename, change color, delete
 
         // Rename
         JMenuItem renameItem = new JMenuItem(Localization.get("rename.tier"));
@@ -57,8 +57,8 @@ public class TierHeaderPanel extends JPanel {
                         Localization.get("new.tier.name"),
                         Localization.get("edit.tier.name"),
                         JOptionPane.PLAIN_MESSAGE,
-                        null, // Icon
-                        null, // Selection values (none)
+                        null,
+                        null,
                         currentName
                 );
 
@@ -75,14 +75,45 @@ public class TierHeaderPanel extends JPanel {
                         JOptionPane.showMessageDialog(TierHeaderPanel.this, Localization.get("err.renaming.tier") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
                         System.err.println("Error renaming tier: " + ex.getMessage());
                     }
-                } else if (newName != null && newName.trim().equals(currentName)) {
-                    // No change
-                } else {
-                    System.out.println("Tier rename cancelled for '" + currentName + "'");
                 }
             }
         });
         editMenu.add(renameItem);
+
+        // Change color
+        JMenuItem changeColorItem = new JMenuItem(Localization.get("change.color"));
+        changeColorItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Color initialColor;
+                try {
+                    initialColor = Color.decode(tier.getColor());
+                } catch (NumberFormatException ex) {
+                    initialColor = Color.GRAY;
+                }
+
+                Color newColor = JColorChooser.showDialog(
+                        TierHeaderPanel.this,
+                        Localization.get("choose.new.color"),
+                        initialColor
+                );
+
+                if (newColor != null) {
+                    String hexColor = String.format("#%02X%02X%02X", newColor.getRed(), newColor.getGreen(), newColor.getBlue());
+                    try {
+                        tier.setColor(hexColor);
+                        tierListService.getTierList().updateModificationTime();
+                        updateDisplay();
+                        parentPanel.refresh();
+                        System.out.println("Tier '" + tier.getName() + "' color changed to " + hexColor);
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(TierHeaderPanel.this, Localization.get("err.changing.color") + ex.getMessage(), Localization.get("error"), JOptionPane.ERROR_MESSAGE);
+                        System.err.println("Error changing tier color: " + ex.getMessage());
+                    }
+                }
+            }
+        });
+        editMenu.add(changeColorItem);
 
         // Delete
         JMenuItem deleteItem = new JMenuItem(Localization.get("del.tier"));
@@ -90,7 +121,6 @@ public class TierHeaderPanel extends JPanel {
         deleteItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Ask for confirmation before deleting the tier
                 int confirm = JOptionPane.showConfirmDialog(
                         TierHeaderPanel.this,
                         Localization.get("want.del.tier") + tier.getName() + "'?",
@@ -113,7 +143,6 @@ public class TierHeaderPanel extends JPanel {
         editButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Display the popup menu under the edit button
                 editMenu.show(editButton, 0, editButton.getHeight());
             }
         });
@@ -133,8 +162,8 @@ public class TierHeaderPanel extends JPanel {
             setBackground(Color.decode(tier.getColor()));
             nameLabel.setForeground(isColorDark(getBackground()) ? Color.WHITE : Color.BLACK);
         } catch (NumberFormatException e) {
-             setBackground(Color.GRAY);
-             nameLabel.setForeground(Color.WHITE);
+            setBackground(Color.GRAY);
+            nameLabel.setForeground(Color.WHITE);
         }
         revalidate();
         repaint();

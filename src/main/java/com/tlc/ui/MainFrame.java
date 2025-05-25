@@ -56,8 +56,8 @@ public class MainFrame extends JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(this,
-                    "Failed to save tier list repository: " + ex.getMessage(),
-                    "Save Error",
+                    Localization.get("failed.to.save.t.l.repo") + ex.getMessage(),
+                    Localization.get("save.error"),
                     JOptionPane.ERROR_MESSAGE);
         }
     }

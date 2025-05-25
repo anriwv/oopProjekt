@@ -13,39 +13,25 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/DeckPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/DeckPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListManagerPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierListPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tlc/ui/TierHeaderPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/com/tlc/ui/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/tlc/ui/messages.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/com/tlc/ui/messages_et.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/com/tlc/ui/messages_et.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DeckPanel$TierItemRenderer.class.uniqueId10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DeckPanel.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ImageStorage.class.uniqueId14" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ImageTierItem.class.uniqueId12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MainFrame$1.class.uniqueId4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MainFrame.class.uniqueId17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierHeaderPanel$1.class.uniqueId9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierHeaderPanel$2.class.uniqueId5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierHeaderPanel$3.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierHeaderPanel.class.uniqueId6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$1.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$2.class.uniqueId15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$3.class.uniqueId8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel.class.uniqueId13" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListPanel$1.class.uniqueId7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListPanel.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierPanel$1.class.uniqueId11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierPanel.class.uniqueId16" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MainFrame$1.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MainFrame.class.uniqueId7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$1.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$2.class.uniqueId5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$3.class.uniqueId6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel$4.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TierListManagerPanel.class.uniqueId3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/ui/DeckPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/DeckPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/ui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierListManagerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierListManagerPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierHeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlc/ui/TierHeaderPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/tlc/ui/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tlc/ui/messages.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/tlc/ui/messages_et.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tlc/ui/messages_et.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tierlists.json" beforeDir="false" afterPath="$PROJECT_DIR$/tierlists.json" afterDir="false" />
@@ -192,7 +178,10 @@
       <workItem from="1746011494708" duration="13000" />
       <workItem from="1747992615129" duration="6989000" />
       <workItem from="1748010023218" duration="5715000" />
-      <workItem from="1748084688077" duration="14301000" />
+      <workItem from="1748084688077" duration="14594000" />
+      <workItem from="1748105512686" duration="335000" />
+      <workItem from="1748166993980" duration="22000" />
+      <workItem from="1748193181102" duration="4952000" />
     </task>
     <servers />
   </component>
